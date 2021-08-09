@@ -1,11 +1,30 @@
 import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-
+import Wellcome from './componnents/wellcome'
+import Header from './componnents/header'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className="App-logo" alt="logo" />
+      <div className="wrapper">
+        <BrowserRouter><Header />
+
+          <Switch>
+            <Route path="/manatee">
+              <Wellcome name="manatee" />
+            </Route>
+            <Route path="/narwhal">
+              <Wellcome name="narwhal" />
+            </Route>
+            <Route path="/whale">
+              <Wellcome name="whale" />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+
+      </div>
+      {/* <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,7 +36,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
